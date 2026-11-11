@@ -6,9 +6,9 @@ import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 
 export const APP_VERSION = "3.4.15";
-export const CLIENT_ID = "ono9krqynydwx5";           // product.json -> iCubeApp.authConfig.TRAE.stable
-export const AUTH_KEY = "iCubeAuthInfo://icube.cloudide";
-export const DC_KEY_PREFIX = "iCubeAuthInfo://icube-dc:";
+export const CLIENT_ID = "ono9krqynydwx5";           // 客户端应用标识
+export const AUTH_KEY = "iCubeAuthInfo://icube.cloudide";            // 登录状态在本机的存储键
+export const DC_KEY_PREFIX = "iCubeAuthInfo://icube-dc:";            // 设备凭据存储键前缀
 
 let _userDataOverride = null;
 export function setUserDataDir(p) { if (p) _userDataOverride = p; }
