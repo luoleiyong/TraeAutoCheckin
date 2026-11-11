@@ -1,0 +1,18 @@
+# ---- 运行时产物 ----
+logs/
+data/
+*.log
+config.ini
+
+# ---- 开发临时文件 ----
+gui/*.png
+gui/*.exe
+*.tmp
+*.bak
+*.pdb
+*.obj
+Thumbs.db
+desktop.ini
+
+# ---- 依赖 ----
+node_modules/

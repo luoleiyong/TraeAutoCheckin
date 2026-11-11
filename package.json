@@ -1,0 +1,14 @@
+{
+  "name": "trae-autocheckin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trae CN 自动签到 / 积分领取工具",
+  "type": "module",
+  "bin": { "trae-checkin": "src/checkin.mjs" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "status": "node src/checkin.mjs status",
+    "checkin": "node src/checkin.mjs run --grants",
+    "watch": "node src/checkin.mjs watch"
+  }
+}
