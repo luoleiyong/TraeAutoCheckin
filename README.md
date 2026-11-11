@@ -46,6 +46,19 @@ Trae 每天签到能领 100 积分，但必须打开 IDE 手动点。这个工�
 | **积分历史** | 每日积分落盘，可查连续签到天数和近 7 日趋势 |
 | **换机自适应** | 程序启动时自动校正计划任务路径，拷贝到新电脑直接能用 |
 | **单文件部署** | 主程序 104 KB，安装包 128 KB，零依赖（内核已内嵌） |
+| **云端托管** | 不想开电脑？把签到搬到 Cloudflare，关机也能签（见 [cloudflare/](cloudflare/)） |
+
+---
+
+## 不想开电脑？用云端版
+
+装在电脑上的版本要**开机才会签到**。如果电脑经常关着，可以把签到搬到 Cloudflare，手机扫码托管一次，之后每天自动运行，跟电脑开不开机没关系。
+
+- 只有一个 `worker.js` 文件，跑在 Cloudflare 免费额度里（占用不到 1%）
+- 账号数据加密存在你自己的 Cloudflare KV 里，密钥只有你知道
+- 手机浏览器直接操作，也能加到桌面当 App
+
+部署 5 分钟，详见 **[cloudflare/README.md](cloudflare/README.md)**。
 
 ---
 
@@ -141,8 +154,11 @@ TraeAutoCheckin/
 │   ├── MainForm.cs             主界面
 │   ├── DisclaimerForm.cs       使用声明
 │   └── Installer.cs            安装/卸载程序
-├── dist/                       编译产物
-└── docs/                       开发笔记
+├── cloudflare/                 云端版（Worker + KV，关机也能签）
+│   ├── worker.js               单文件实现
+│   ├── _selftest.mjs           本地自检（37 项）
+│   └── README.md               部署说明
+└── dist/                       编译产物
 ```
 
 内核以资源形式编译进 exe，运行时解压到 `%LOCALAPPDATA%\TraeAutoCheckin\core`，所以绿色版和安装版都不需要外挂文件。

@@ -1,0 +1,14 @@
+name = "trae-checkin"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# 网页版部署可以忽略本文件；用 wrangler 时把 id 换成自己的
+[[kv_namespaces]]
+binding = "KV"
+id = "替换成 wrangler kv namespace create KV 输出的 id"
+
+[triggers]
+crons = ["10 0 * * *"]
+
+[vars]
+CRON_ENABLED = "1"
